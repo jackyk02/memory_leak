@@ -55,6 +55,7 @@ void server1542347293_mainreaction_function_1(void* instance_args) {
         lf_print_error_and_exit("Could not deserialize deserialized_message.");
     }
     Py_XDECREF(message_byte_array);
+    Py_XDECREF(message_byte_array);
     lf_set(server.in_parameter, deserialized_message);
     /* Release the thread. No Python API allowed beyond this point. */
     PyGILState_Release(gstate);
