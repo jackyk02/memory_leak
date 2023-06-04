@@ -1,0 +1,116 @@
+target Python {
+    logging: "debug",
+    _fed_setup: "include/_server_preamble.h",
+    keepalive: true,
+    threading: true,
+    compile-definitions: {
+        EXECUTABLE_PREAMBLE: "",
+        WORKERS_NEEDED_FOR_FEDERATE: "2",
+        NUMBER_OF_FEDERATES: "2",
+        FEDERATED: "",
+        FEDERATED_CENTRALIZED: ""
+    },
+    timeout: 10 sec
+}
+
+NONE preamble {=
+import time
+import tracemalloc
+tracemalloc.start()
+=}
+preamble {=
+
+=}
+
+reactor ServerReactor {
+    input in_parameter
+    output out_parameter
+    state large_param
+
+    reaction(startup) ->
+    out_parameter {=
+        temp = [1.000000005]*10
+        self.large_param = temp * 100000
+        out_parameter.set(self.large_param)
+    =}
+
+    reaction(in_parameter) ->
+    out_parameter {=
+        snapshot = tracemalloc.take_snapshot()
+        top_stats = snapshot.statistics("lineno")
+
+        print("[ Top 10 ]")
+        for stat in top_stats[:10]:
+            print(stat)
+
+        time.sleep(2)
+        param_temp = in_parameter.value
+        out_parameter.set(param_temp)
+    =}
+}
+@_fed_config(network_message_actions="networkMessage")
+main reactor  {
+
+    server = new ServerReactor()
+    
+    logical action inputControlReactionTrigger
+    logical action networkMessage
+    
+    
+    @_c_body
+    @_unordered
+    reaction(inputControlReactionTrigger) -> server.in_parameter {=
+        // **** This reaction is unordered.
+        interval_t max_STP = 0LL;
+        // Wait until the port status is known
+        wait_until_port_status_known(0, max_STP);
+    =}
+    @_c_body
+    @_unordered
+    reaction(networkMessage) -> server.in_parameter {=
+        // **** This reaction is unordered.
+        // Acquire the GIL (Global Interpreter Lock) to be able to call Python APIs.
+        PyGILState_STATE gstate;
+        gstate = PyGILState_Ensure();
+        // **** This reaction is unordered.
+        server.in_parameter->physical_time_of_arrival = self->_lf__networkMessage.physical_time_of_arrival;
+        PyObject* message_byte_array = PyBytes_FromStringAndSize((char*)networkMessage->token->value, networkMessage->token->length);
+        Py_XINCREF(message_byte_array);
+        PyObject* deserialized_message = PyObject_CallMethod(global_pickler, "loads", "O", message_byte_array);
+        if (deserialized_message == NULL) {
+            if (PyErr_Occurred()) PyErr_Print();
+            lf_print_error_and_exit("Could not deserialize deserialized_message.");
+        }
+        Py_XDECREF(message_byte_array);
+        lf_set(server.in_parameter, deserialized_message);
+        /* Release the thread. No Python API allowed beyond this point. */
+        PyGILState_Release(gstate);
+    =}
+    @_c_body
+    @_unordered
+    reaction(server.out_parameter) {=
+        // **** This reaction is unordered.
+        // Acquire the GIL (Global Interpreter Lock) to be able to call Python APIs.
+        PyGILState_STATE gstate;
+        gstate = PyGILState_Ensure();
+        // **** This reaction is unordered.
+        // Sending from server.out_parameter in federate server to client.in_parameter in federate client
+        if (!server.out_parameter->is_present) return;
+        if (global_pickler == NULL) lf_print_error_and_exit("The pickle module is not loaded.");
+        PyObject* serialized_pyobject = PyObject_CallMethod(global_pickler, "dumps", "O", server.out_parameter->value);
+        if (serialized_pyobject == NULL) {
+            if (PyErr_Occurred()) PyErr_Print();
+            lf_print_error_and_exit("Could not serialize serialized_pyobject.");
+        }
+        Py_buffer serialized_message;
+        int returnValue = PyBytes_AsStringAndSize(serialized_pyobject, &serialized_message.buf, &serialized_message.len);
+        if (returnValue == -1) {
+            if (PyErr_Occurred()) PyErr_Print();
+            lf_print_error_and_exit("Could not serialize serialized_message.");
+        }
+        size_t message_length = serialized_message.len;
+        send_timed_message(0, MSG_TYPE_TAGGED_MESSAGE, 0, 0, "federate 0 via the RTI", message_length, serialized_message.buf);
+        /* Release the thread. No Python API allowed beyond this point. */
+        PyGILState_Release(gstate);
+    =}
+}

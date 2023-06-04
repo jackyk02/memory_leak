@@ -1,0 +1,59 @@
+target Python{
+    timeout: 10 sec,
+    logging: DEBUG
+};
+
+
+preamble {=
+    import time
+    import tracemalloc
+    tracemalloc.start()
+=}
+
+reactor ClientReactor {
+    input in_parameter
+    output out_parameter
+    
+    reaction(startup) {=
+     =}
+     
+     reaction(in_parameter) -> out_parameter{=
+        time.sleep(2)
+        param_temp = in_parameter.value
+        print(len(param_temp))
+        out_parameter.set(param_temp)
+    =}
+}
+
+reactor ServerReactor {
+    input in_parameter
+    output out_parameter
+    state large_param
+    
+    reaction(startup)-> out_parameter {=
+        temp = [1.000000005]*10
+        self.large_param = temp * 100000
+        out_parameter.set(self.large_param)
+     =}
+     
+     reaction(in_parameter) -> out_parameter{=
+        snapshot = tracemalloc.take_snapshot()
+        top_stats = snapshot.statistics("lineno")
+        
+        print("[ Top 10 ]")
+        for stat in top_stats[:10]:
+            print(stat)
+            
+        time.sleep(2)
+        param_temp = in_parameter.value
+        out_parameter.set(param_temp)
+    =}
+}
+
+federated reactor{
+    client = new ClientReactor()
+    server = new ServerReactor()
+    server.out_parameter -> client.in_parameter after 0
+    client.out_parameter -> server.in_parameter
+}
+

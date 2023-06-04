@@ -1,0 +1,112 @@
+target Python {
+    logging: "debug",
+    _fed_setup: "include/_client_preamble.h",
+    keepalive: true,
+    threading: true,
+    compile-definitions: {
+        EXECUTABLE_PREAMBLE: "",
+        WORKERS_NEEDED_FOR_FEDERATE: "2",
+        NUMBER_OF_FEDERATES: "2",
+        FEDERATED: "",
+        FEDERATED_CENTRALIZED: ""
+    },
+    timeout: 10 sec
+}
+
+NONE preamble {=
+import time
+import tracemalloc
+tracemalloc.start()
+=}
+preamble {=
+
+=}
+
+reactor ClientReactor {
+    input in_parameter
+    output out_parameter
+
+    reaction(
+        startup
+    ) {=  =}
+
+    reaction(in_parameter) ->
+    out_parameter {=
+        time.sleep(2)
+        param_temp = in_parameter.value
+        print(len(param_temp))
+        out_parameter.set(param_temp)
+    =}
+}
+@_fed_config(network_message_actions="networkMessage_0")
+main reactor  {
+
+    client = new ClientReactor()
+    
+    logical action outputControlReactionTrigger
+    logical action networkMessage_0
+    
+    
+    @_c_body
+    @_unordered
+    reaction(client.out_parameter) {=
+        // **** This reaction is unordered.
+        // Acquire the GIL (Global Interpreter Lock) to be able to call Python APIs.
+        PyGILState_STATE gstate;
+        gstate = PyGILState_Ensure();
+        // **** This reaction is unordered.
+        // Sending from client.out_parameter in federate client to server.in_parameter in federate server
+        if (!client.out_parameter->is_present) return;
+        if (global_pickler == NULL) lf_print_error_and_exit("The pickle module is not loaded.");
+        PyObject* serialized_pyobject = PyObject_CallMethod(global_pickler, "dumps", "O", client.out_parameter->value);
+        if (serialized_pyobject == NULL) {
+            if (PyErr_Occurred()) PyErr_Print();
+            lf_print_error_and_exit("Could not serialize serialized_pyobject.");
+        }
+        Py_buffer serialized_message;
+        int returnValue = PyBytes_AsStringAndSize(serialized_pyobject, &serialized_message.buf, &serialized_message.len);
+        if (returnValue == -1) {
+            if (PyErr_Occurred()) PyErr_Print();
+            lf_print_error_and_exit("Could not serialize serialized_message.");
+        }
+        size_t message_length = serialized_message.len;
+        send_timed_message(NEVER, MSG_TYPE_TAGGED_MESSAGE, 0, 1, "federate 1 via the RTI", message_length, serialized_message.buf);
+        /* Release the thread. No Python API allowed beyond this point. */
+        PyGILState_Release(gstate);
+    =}
+    @_c_body
+    @_unordered
+    reaction(outputControlReactionTrigger) client.out_parameter {=
+        // **** This reaction is unordered.
+        // If the output port has not been lf_set for the current logical time,
+        // send an ABSENT message to the receiving federate
+        LF_PRINT_LOG("Contemplating whether to send port "
+                  "absent for port %d to federate %d.",
+                  0, 1);
+        if (client.out_parameter == NULL || !client.out_parameter->is_present) {
+            // The output port is NULL or it is not present.
+            send_port_absent_to_federate(NEVER, 0, 1);
+        }
+    =}
+    @_c_body
+    @_unordered
+    reaction(networkMessage_0) -> client.in_parameter {=
+        // **** This reaction is unordered.
+        // Acquire the GIL (Global Interpreter Lock) to be able to call Python APIs.
+        PyGILState_STATE gstate;
+        gstate = PyGILState_Ensure();
+        // **** This reaction is unordered.
+        client.in_parameter->physical_time_of_arrival = self->_lf__networkMessage_0.physical_time_of_arrival;
+        PyObject* message_byte_array = PyBytes_FromStringAndSize((char*)networkMessage_0->token->value, networkMessage_0->token->length);
+        Py_XINCREF(message_byte_array);
+        PyObject* deserialized_message = PyObject_CallMethod(global_pickler, "loads", "O", message_byte_array);
+        if (deserialized_message == NULL) {
+            if (PyErr_Occurred()) PyErr_Print();
+            lf_print_error_and_exit("Could not deserialize deserialized_message.");
+        }
+        Py_XDECREF(message_byte_array);
+        lf_set(client.in_parameter, deserialized_message);
+        /* Release the thread. No Python API allowed beyond this point. */
+        PyGILState_Release(gstate);
+    =}
+}

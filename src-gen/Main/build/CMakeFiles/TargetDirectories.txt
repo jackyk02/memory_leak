@@ -1,0 +1,14 @@
+/mnt/c/Users/jacky/Desktop/Memory_Leak/src-gen/Main/build/CMakeFiles/LinguaFrancaMain.dir
+/mnt/c/Users/jacky/Desktop/Memory_Leak/src-gen/Main/build/CMakeFiles/edit_cache.dir
+/mnt/c/Users/jacky/Desktop/Memory_Leak/src-gen/Main/build/CMakeFiles/rebuild_cache.dir
+/mnt/c/Users/jacky/Desktop/Memory_Leak/src-gen/Main/build/CMakeFiles/list_install_components.dir
+/mnt/c/Users/jacky/Desktop/Memory_Leak/src-gen/Main/build/CMakeFiles/install.dir
+/mnt/c/Users/jacky/Desktop/Memory_Leak/src-gen/Main/build/CMakeFiles/install/local.dir
+/mnt/c/Users/jacky/Desktop/Memory_Leak/src-gen/Main/build/CMakeFiles/install/strip.dir
+/mnt/c/Users/jacky/Desktop/Memory_Leak/src-gen/Main/build/core/CMakeFiles/core.dir
+/mnt/c/Users/jacky/Desktop/Memory_Leak/src-gen/Main/build/core/CMakeFiles/edit_cache.dir
+/mnt/c/Users/jacky/Desktop/Memory_Leak/src-gen/Main/build/core/CMakeFiles/rebuild_cache.dir
+/mnt/c/Users/jacky/Desktop/Memory_Leak/src-gen/Main/build/core/CMakeFiles/list_install_components.dir
+/mnt/c/Users/jacky/Desktop/Memory_Leak/src-gen/Main/build/core/CMakeFiles/install.dir
+/mnt/c/Users/jacky/Desktop/Memory_Leak/src-gen/Main/build/core/CMakeFiles/install/local.dir
+/mnt/c/Users/jacky/Desktop/Memory_Leak/src-gen/Main/build/core/CMakeFiles/install/strip.dir

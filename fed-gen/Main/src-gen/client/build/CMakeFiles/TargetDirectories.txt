@@ -1,0 +1,14 @@
+/mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src-gen/client/build/CMakeFiles/LinguaFrancaclient.dir
+/mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src-gen/client/build/CMakeFiles/edit_cache.dir
+/mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src-gen/client/build/CMakeFiles/rebuild_cache.dir
+/mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src-gen/client/build/CMakeFiles/list_install_components.dir
+/mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src-gen/client/build/CMakeFiles/install.dir
+/mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src-gen/client/build/CMakeFiles/install/local.dir
+/mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src-gen/client/build/CMakeFiles/install/strip.dir
+/mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src-gen/client/build/core/CMakeFiles/core.dir
+/mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src-gen/client/build/core/CMakeFiles/edit_cache.dir
+/mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src-gen/client/build/core/CMakeFiles/rebuild_cache.dir
+/mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src-gen/client/build/core/CMakeFiles/list_install_components.dir
+/mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src-gen/client/build/core/CMakeFiles/install.dir
+/mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src-gen/client/build/core/CMakeFiles/install/local.dir
+/mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src-gen/client/build/core/CMakeFiles/install/strip.dir
