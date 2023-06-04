@@ -756,6 +756,8 @@ get_python_function(string module, string class, int instance_id, string func) {
             }
             lf_print_error("Function %s was not found or is not callable.", func);
         }
+        LF_PRINT_DEBUG("pFunc Reference count: %ld\n", Py_REFCNT(pFunc));
+        LF_PRINT_DEBUG("pFunc Reference count: %ld\n", Py_REFCNT(globalPythonModule));
         Py_XDECREF(pFunc);
         Py_DECREF(globalPythonModule);
     }

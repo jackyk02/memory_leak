@@ -95,6 +95,7 @@ PyObject* py_port_set(PyObject* self, PyObject* args) {
         // Also set the values for the port capsule.
         p->value = val;
         p->is_present = true;
+        LF_PRINT_DEBUG("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!val Reference count: %ld\n", Py_REFCNT(val));
     }
 
     Py_INCREF(Py_None);
@@ -349,6 +350,7 @@ int py_port_capsule_init(generic_port_capsule_struct* self, PyObject* args, PyOb
         tmp = self->value;
         Py_INCREF(value);
         self->value = value;
+        LF_PRINT_DEBUG("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!TMP Reference count: %ld\n", Py_REFCNT(tmp));
         Py_XDECREF(tmp);
     }
 
@@ -356,6 +358,7 @@ int py_port_capsule_init(generic_port_capsule_struct* self, PyObject* args, PyOb
         tmp = self->port;
         Py_INCREF(port);
         self->port = port;
+        LF_PRINT_DEBUG("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!TMP Reference count: %ld\n", Py_REFCNT(tmp));
         Py_XDECREF(tmp);
     }
     return 0;
