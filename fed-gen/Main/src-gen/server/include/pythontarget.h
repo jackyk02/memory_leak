@@ -79,6 +79,8 @@ THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 extern PyObject *globalPythonModule;
 extern PyObject *globalPythonModuleDict;
 extern PyObject* global_pickler;
+extern PyObject* input_capsule;
+extern PyObject* output_capsule;
 
 //////////////////////////////////////////////////////////////
 /////////////  schedule Functions (to schedule an action)
@@ -132,6 +134,8 @@ PyObject* py_main(PyObject *self, PyObject *args);
  * Individual ports can then later be accessed in Python code as port[idx].
  */
 PyObject* convert_C_port_to_py(void* port, int width);
+PyObject* in_convert_C_port_to_py(void* port, int width);
+PyObject* out_convert_C_port_to_py(void* port, int width);
 
 /**
  * A helper function to convert C actions to Python action capsules

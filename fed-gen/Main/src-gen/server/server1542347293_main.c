@@ -3,6 +3,9 @@
 #include "include/server/server.h"
 #include "server1542347293_main.h"
 #include "include/api/set.h"
+#include "include/python_port.h"
+#include "include/pythontarget.h"
+
 void server1542347293_mainreaction_function_0(void* instance_args) {
     _server1542347293_main_main_self_t* self = (_server1542347293_main_main_self_t*)instance_args; SUPPRESS_UNUSED_WARNING(self);
     struct server {
@@ -87,6 +90,10 @@ void server1542347293_mainreaction_function_2(void* instance_args) {
     }
     size_t message_length = serialized_message.len;
     send_timed_message(0, MSG_TYPE_TAGGED_MESSAGE, 0, 0, "federate 0 via the RTI", message_length, serialized_message.buf);
+
+    //added 
+    py_port_capsule_dealloc((generic_port_capsule_struct*)output_capsule);
+
     /* Release the thread. No Python API allowed beyond this point. */
     PyGILState_Release(gstate);
 }

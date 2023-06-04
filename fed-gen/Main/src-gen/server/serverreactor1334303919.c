@@ -45,7 +45,7 @@ void serverreactor1334303919reaction_function_1(void* instance_args){
     LF_PRINT_DEBUG("Calling reaction function serverreactor1334303919.reaction_function_1");
     PyObject *rValue = PyObject_CallObject(
         self->_lf_py_reaction_function_1, 
-        Py_BuildValue("(OO)", convert_C_port_to_py(in_parameter, in_parameter_width), convert_C_port_to_py(out_parameter, -2))
+        Py_BuildValue("(OO)", in_convert_C_port_to_py(in_parameter, in_parameter_width), out_convert_C_port_to_py(out_parameter, -2))
     );
     if (rValue == NULL) {
         lf_print_error("FATAL: Calling reaction serverreactor1334303919.reaction_function_1 failed.");
