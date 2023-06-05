@@ -3,6 +3,7 @@
 #include "include/client/client.h"
 #include "client56769829_main.h"
 #include "include/api/set.h"
+#include "include/pythontarget.h"
 void client56769829_mainreaction_function_0(void* instance_args) {
     _client56769829_main_main_self_t* self = (_client56769829_main_main_self_t*)instance_args; SUPPRESS_UNUSED_WARNING(self);
     struct client {
@@ -32,6 +33,12 @@ void client56769829_mainreaction_function_0(void* instance_args) {
     }
     size_t message_length = serialized_message.len;
     send_timed_message(NEVER, MSG_TYPE_TAGGED_MESSAGE, 0, 1, "federate 1 via the RTI", message_length, serialized_message.buf);
+    //added 
+    generic_port_capsule_struct* to_be_freed = (generic_port_capsule_struct*)output_capsule;
+    Py_XDECREF(to_be_freed->value);
+    Py_XDECREF(to_be_freed->value);
+    Py_XDECREF(to_be_freed->value);
+    //Py_XDECREF(to_be_freed->port);
     /* Release the thread. No Python API allowed beyond this point. */
     PyGILState_Release(gstate);
 }
@@ -92,7 +99,9 @@ void client56769829_mainreaction_function_2(void* instance_args) {
         lf_print_error_and_exit("Could not deserialize deserialized_message.");
     }
     Py_XDECREF(message_byte_array);
+    Py_XDECREF(message_byte_array);
     lf_set(client.in_parameter, deserialized_message);
+    //Py_XDECREF(deserialized_message);
     /* Release the thread. No Python API allowed beyond this point. */
     PyGILState_Release(gstate);
 }

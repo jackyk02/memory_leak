@@ -3,7 +3,6 @@
 #include "include/server/server.h"
 #include "server1542347293_main.h"
 #include "include/api/set.h"
-#include "include/python_port.h"
 #include "include/pythontarget.h"
 
 void server1542347293_mainreaction_function_0(void* instance_args) {
@@ -93,9 +92,14 @@ void server1542347293_mainreaction_function_2(void* instance_args) {
     size_t message_length = serialized_message.len;
     send_timed_message(0, MSG_TYPE_TAGGED_MESSAGE, 0, 0, "federate 0 via the RTI", message_length, serialized_message.buf);
 
-    Py_XDECREF(serialized_pyobject);
+    //Py_XDECREF(serialized_pyobject); //may be move it to somewhere else
     //added 
-    py_port_capsule_dealloc((generic_port_capsule_struct*)output_capsule);
+    generic_port_capsule_struct* to_be_freed = (generic_port_capsule_struct*)output_capsule;
+    Py_XDECREF(to_be_freed->value);
+    Py_XDECREF(to_be_freed->value);
+    Py_XDECREF(to_be_freed->value);
+    Py_XDECREF(to_be_freed->port);
+
     /* Release the thread. No Python API allowed beyond this point. */
     PyGILState_Release(gstate);
 }
