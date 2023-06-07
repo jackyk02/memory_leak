@@ -26,7 +26,7 @@ endif()
 # do not print install messages
 set(CMAKE_INSTALL_MESSAGE NEVER)
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
-add_compile_definitions(_LF_GARBAGE_COLLECTED)
+#add_compile_definitions(_LF_GARBAGE_COLLECTED)
 add_subdirectory(core)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR})
 set(LF_MAIN_TARGET LinguaFrancaserver)

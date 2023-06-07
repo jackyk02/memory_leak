@@ -5,6 +5,9 @@
 #include "include/api/set.h"
 #include "include/pythontarget.h"
 
+PyObject* global_deserialized_message = NULL;
+
+
 void server1542347293_mainreaction_function_0(void* instance_args) {
     _server1542347293_main_main_self_t* self = (_server1542347293_main_main_self_t*)instance_args; SUPPRESS_UNUSED_WARNING(self);
     struct server {
@@ -26,6 +29,14 @@ void server1542347293_mainreaction_function_0(void* instance_args) {
 }
 #include "include/api/set_undef.h"
 #include "include/api/set.h"
+
+void python_count_decrement(void* py_object) {
+    LF_PRINT_DEBUG("PYTHON DECREMENT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+    Py_XDECREF((PyObject*)py_object);
+}
+
+
+
 void server1542347293_mainreaction_function_1(void* instance_args) {
     _server1542347293_main_main_self_t* self = (_server1542347293_main_main_self_t*)instance_args; SUPPRESS_UNUSED_WARNING(self);
     struct server {
@@ -47,16 +58,27 @@ void server1542347293_mainreaction_function_1(void* instance_args) {
     // **** This reaction is unordered.
     server.in_parameter->physical_time_of_arrival = self->_lf__networkMessage.physical_time_of_arrival;
     PyObject* message_byte_array = PyBytes_FromStringAndSize((char*)networkMessage->token->value, networkMessage->token->length);
-    Py_XINCREF(message_byte_array);
+    //Py_XINCREF(message_byte_array); //should be commented and explain the PyBytes Function above
     PyObject* deserialized_message = PyObject_CallMethod(global_pickler, "loads", "O", message_byte_array);
+
     if (deserialized_message == NULL) {
         if (PyErr_Occurred()) PyErr_Print();
         lf_print_error_and_exit("Could not deserialize deserialized_message.");
     }
     Py_XDECREF(message_byte_array);
-    Py_XDECREF(message_byte_array);
-    lf_set(server.in_parameter, deserialized_message);
-    Py_XDECREF(deserialized_message);
+
+    //changed
+    lf_token_t* token = lf_new_token((void*)server.in_parameter, deserialized_message, 1);
+    //lf_token_t* token = _lf_initialize_token_with_value((token_template_t*)server.in_parameter, deserialized_message, 1);
+    //server.in_parameter->token = token;
+    //added
+    LF_PRINT_DEBUG("%p\n", token->value);
+    LF_PRINT_DEBUG("Created new token in main..............................................................................................");
+    lf_set_destructor(server.in_parameter, python_count_decrement);
+    lf_set_token(server.in_parameter, token);
+    //lf_set(server.in_parameter, deserialized_message); //create a token first, lf_set_token(server.in_parameter), define copy constructor and destructor
+    
+    //Py_XDECREF(deserialized_message); //where should I move it to?
     /* Release the thread. No Python API allowed beyond this point. */
     PyGILState_Release(gstate);
 }
@@ -92,13 +114,13 @@ void server1542347293_mainreaction_function_2(void* instance_args) {
     size_t message_length = serialized_message.len;
     send_timed_message(0, MSG_TYPE_TAGGED_MESSAGE, 0, 0, "federate 0 via the RTI", message_length, serialized_message.buf);
 
-    //Py_XDECREF(serialized_pyobject); //may be move it to somewhere else
     //added 
-    generic_port_capsule_struct* to_be_freed = (generic_port_capsule_struct*)output_capsule;
-    Py_XDECREF(to_be_freed->value);
-    Py_XDECREF(to_be_freed->value);
-    Py_XDECREF(to_be_freed->value);
-    Py_XDECREF(to_be_freed->port);
+    Py_XDECREF(server.out_parameter->value);
+    Py_XDECREF(server.out_parameter->value);
+    Py_XDECREF(server.out_parameter->value);
+    //Py_XDECREF(server.out_parameter);
+    
+    //Py_XDECREF(serialized_pyobject); //where should I move it to?
 
     /* Release the thread. No Python API allowed beyond this point. */
     PyGILState_Release(gstate);

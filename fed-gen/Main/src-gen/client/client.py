@@ -81,6 +81,7 @@ class _clientreactor1769219705:
         
         return 0
     def reaction_function_1(self, in_parameter, out_parameter):
+        print("HELLO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
         time.sleep(2)
         param_temp = in_parameter.value
         print(len(param_temp))

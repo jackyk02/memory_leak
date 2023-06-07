@@ -11,6 +11,7 @@
 #include "include/core/mixed_radix.h"
 #include "include/core/port.h"
 int lf_reactor_c_main(int argc, const char* argv[]);
+extern PyObject* global_deserialized_message;
 #include "include/core/federated/federate.h"
 #include "include/core/federated/net_common.h"
 #include "pythontarget.h"

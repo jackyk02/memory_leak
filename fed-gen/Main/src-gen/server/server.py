@@ -93,6 +93,7 @@ class _serverreactor1334303919:
         
         time.sleep(2)
         param_temp = in_parameter.value
+        print(len(param_temp))
         out_parameter.set(param_temp)
         return 0
 

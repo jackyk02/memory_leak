@@ -239,6 +239,7 @@ void _lf_initialize_trigger_objects() {
         int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
         int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
         server_main_self[src_runtime]->_lf_server.in_parameter.num_destinations = 1;
+        _lf_initialize_template((token_template_t*)(&server_main_self[src_runtime]->_lf_server.in_parameter), sizeof(PyObject*));  //added
     }
     {
         int triggers_index[1] = { 0 }; // Number of bank members with the reaction.

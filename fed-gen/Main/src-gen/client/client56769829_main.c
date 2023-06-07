@@ -34,11 +34,10 @@ void client56769829_mainreaction_function_0(void* instance_args) {
     size_t message_length = serialized_message.len;
     send_timed_message(NEVER, MSG_TYPE_TAGGED_MESSAGE, 0, 1, "federate 1 via the RTI", message_length, serialized_message.buf);
     //added 
-    generic_port_capsule_struct* to_be_freed = (generic_port_capsule_struct*)output_capsule;
-    Py_XDECREF(to_be_freed->value);
-    Py_XDECREF(to_be_freed->value);
-    Py_XDECREF(to_be_freed->value);
-    //Py_XDECREF(to_be_freed->port);
+    Py_XDECREF(client.out_parameter->value);
+    Py_XDECREF(client.out_parameter->value);
+    Py_XDECREF(client.out_parameter->value);
+
     /* Release the thread. No Python API allowed beyond this point. */
     PyGILState_Release(gstate);
 }
@@ -69,6 +68,12 @@ void client56769829_mainreaction_function_1(void* instance_args) {
         send_port_absent_to_federate(NEVER, 0, 1);
     }
 }
+
+void python_count_decrement(void* py_object) {
+    LF_PRINT_DEBUG("PYTHON DECREMENT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+    Py_XDECREF((PyObject*)py_object);
+}
+
 #include "include/api/set_undef.h"
 #include "include/api/set.h"
 void client56769829_mainreaction_function_2(void* instance_args) {
@@ -100,7 +105,17 @@ void client56769829_mainreaction_function_2(void* instance_args) {
     }
     Py_XDECREF(message_byte_array);
     Py_XDECREF(message_byte_array);
-    lf_set(client.in_parameter, deserialized_message);
+
+    //changed
+    lf_token_t* token = lf_new_token((void*)client.in_parameter, deserialized_message, 1);
+    //lf_token_t* token = _lf_initialize_token_with_value((token_template_t*)client.in_parameter, deserialized_message, 1);
+    //client.in_parameter->token = token;
+    //added
+    lf_set_destructor(client.in_parameter, python_count_decrement);
+    lf_set_token(client.in_parameter, token);
+    //lf_set(client.in_parameter, deserialized_message);
+
+
     //Py_XDECREF(deserialized_message);
     /* Release the thread. No Python API allowed beyond this point. */
     PyGILState_Release(gstate);
