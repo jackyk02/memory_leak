@@ -135,7 +135,6 @@ void _lf_free_token_value(lf_token_t* token) {
         // Free the value field (the payload).
         // First check whether the value field is garbage collected (e.g. in the
         // Python target), in which case the payload should not be freed.
-#ifndef _LF_GARBAGE_COLLECTED
         LF_PRINT_DEBUG("_lf_free_token_value: Freeing allocated memory for payload (token value): %p",
                 token->value);
         if (token->type->destructor == NULL) {
@@ -143,7 +142,6 @@ void _lf_free_token_value(lf_token_t* token) {
         } else {
             token->type->destructor(token->value);
         }
-#endif
         token->value = NULL;
     }
 }

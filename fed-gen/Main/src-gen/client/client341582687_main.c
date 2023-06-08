@@ -5,6 +5,7 @@
 #include "include/api/set.h"
 
 PyObject* out_param_val = NULL;
+PyObject* serialized_obj = NULL;
 
 void python_count_decrement(void* py_object) {
     LF_PRINT_DEBUG("PYTHON DECREMENT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
@@ -13,6 +14,8 @@ void python_count_decrement(void* py_object) {
     Py_XDECREF(out_param_val);
     Py_XDECREF(out_param_val);
     Py_XDECREF(out_param_val);
+    LF_PRINT_DEBUG("!!!!!!!!!!!!!!!!!!!!!Reference COUNT: %d", Py_REFCNT(serialized_obj));
+    Py_XDECREF(serialized_obj);
 }
 
 void client341582687_mainreaction_function_0(void* instance_args) {
@@ -46,6 +49,7 @@ void client341582687_mainreaction_function_0(void* instance_args) {
     int send = send_timed_message(NEVER, MSG_TYPE_TAGGED_MESSAGE, 0, 1, "federate 1 via the RTI", message_length, serialized_message.buf);
     //added
     out_param_val = client.out_parameter->value;
+    serialized_obj = serialized_pyobject;
     
     /* Release the thread. No Python API allowed beyond this point. */
     PyGILState_Release(gstate);
