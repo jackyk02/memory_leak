@@ -40,8 +40,8 @@ Python_add_library(
     lib/python_tag.c
     lib/python_time.c
     lib/pythontarget.c
-    server1542347293_main.c
-    serverreactor1334303919.c
+    serverreactor1387187301.c
+    server2107671597_main.c
     server.c
 )
 if (MSVC)

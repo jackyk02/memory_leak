@@ -22,8 +22,8 @@ void _lf_set_default_command_line_options() {
         default_argc = 6;
         default_argv = _lf_default_argv;
 }
-#include "clientreactor1769219705.h"
-#include "client56769829_main.h"
+#include "clientreactor393266340.h"
+#include "client341582687_main.h"
 #include "include/_client_preamble.h"
 // Array of pointers to timer triggers to be scheduled in _lf_initialize_timers().
 trigger_t** _lf_timer_triggers = NULL;
@@ -63,12 +63,12 @@ void _lf_initialize_trigger_objects() {
     SUPPRESS_UNUSED_WARNING(_lf_timer_triggers_count);
     int bank_index;
     SUPPRESS_UNUSED_WARNING(bank_index);
-    _client56769829_main_main_self_t* client_main_self[1];
+    _client341582687_main_main_self_t* client_main_self[1];
     SUPPRESS_UNUSED_WARNING(client_main_self);
-    _clientreactor1769219705_self_t* client_client_self[1];
+    _clientreactor393266340_self_t* client_client_self[1];
     SUPPRESS_UNUSED_WARNING(client_client_self);
     // ***** Start initializing client of class client
-    client_main_self[0] = new_client56769829_main();
+    client_main_self[0] = new_client341582687_main();
     client_main_self[0]->_lf_name = "client_main_lf";
     // Initializing action client.outputControlReactionTrigger
     client_main_self[0]->_lf__outputControlReactionTrigger.offset = 0;
@@ -91,7 +91,7 @@ void _lf_initialize_trigger_objects() {
     client_main_self[0]->_lf__reaction_2.deadline = NEVER;
     {
         // ***** Start initializing client.client of class ClientReactor
-        client_client_self[0] = new_clientreactor1769219705();
+        client_client_self[0] = new_clientreactor393266340();
         client_client_self[0]->_lf_name = "client_client_lf";
         client_client_self[0]->_lf_py_reaction_function_0 = 
         get_python_function("__main__", 
@@ -317,7 +317,7 @@ void _lf_initialize_trigger_objects() {
             int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
             int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
             int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            client_client_self[dst_runtime]->_lf_in_parameter = (clientreactor1769219705_in_parameter_t*)&client_main_self[src_runtime]->_lf_client.in_parameter;
+            client_client_self[dst_runtime]->_lf_in_parameter = (clientreactor393266340_in_parameter_t*)&client_main_self[src_runtime]->_lf_client.in_parameter;
         }
     }
     // Connect client.client.out_parameter(0,1)->[client.client.out_parameter(0,1)] to port client.client.out_parameter(0,1)
@@ -335,7 +335,7 @@ void _lf_initialize_trigger_objects() {
             int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
             int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
             int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            client_main_self[dst_runtime]->_lf_client.out_parameter = (clientreactor1769219705_out_parameter_t*)&client_client_self[src_runtime]->_lf_out_parameter;
+            client_main_self[dst_runtime]->_lf_client.out_parameter = (clientreactor393266340_out_parameter_t*)&client_client_self[src_runtime]->_lf_out_parameter;
         }
     }
     {

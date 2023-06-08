@@ -39,8 +39,8 @@ events:
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "/mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src-gen/server/build/CMakeFiles/CMakeScratch/TryCompile-Sg23KH"
-      binary: "/mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src-gen/server/build/CMakeFiles/CMakeScratch/TryCompile-Sg23KH"
+      source: "/mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src-gen/server/build/CMakeFiles/CMakeScratch/TryCompile-pOP6Pe"
+      binary: "/mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src-gen/server/build/CMakeFiles/CMakeScratch/TryCompile-pOP6Pe"
     cmakeVariables:
       CMAKE_C_FLAGS: ""
       CMAKE_C_FLAGS_DEBUG: "-g"
@@ -49,12 +49,14 @@ events:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: /mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src-gen/server/build/CMakeFiles/CMakeScratch/TryCompile-Sg23KH
+        Change Dir: /mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src-gen/server/build/CMakeFiles/CMakeScratch/TryCompile-pOP6Pe
         
-        Run Build Command(s):/home/jackyk0708/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_0740b/fast && /usr/bin/make  -f CMakeFiles/cmTC_0740b.dir/build.make CMakeFiles/cmTC_0740b.dir/build
-        make[1]: Entering directory '/mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src-gen/server/build/CMakeFiles/CMakeScratch/TryCompile-Sg23KH'
-        Building C object CMakeFiles/cmTC_0740b.dir/CMakeCCompilerABI.c.o
-        /usr/bin/gcc   -v -o CMakeFiles/cmTC_0740b.dir/CMakeCCompilerABI.c.o -c /home/jackyk0708/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeCCompilerABI.c
+        Run Build Command(s):/home/jackyk0708/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_4ddfc/fast && make: Warning: File 'Makefile' has modification time 1132 s in the future
+        /usr/bin/make  -f CMakeFiles/cmTC_4ddfc.dir/build.make CMakeFiles/cmTC_4ddfc.dir/build
+        make[1]: Entering directory '/mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src-gen/server/build/CMakeFiles/CMakeScratch/TryCompile-pOP6Pe'
+        make[1]: Warning: File 'CMakeFiles/cmTC_4ddfc.dir/flags.make' has modification time 1132 s in the future
+        Building C object CMakeFiles/cmTC_4ddfc.dir/CMakeCCompilerABI.c.o
+        /usr/bin/gcc   -v -o CMakeFiles/cmTC_4ddfc.dir/CMakeCCompilerABI.c.o -c /home/jackyk0708/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeCCompilerABI.c
         Using built-in specs.
         COLLECT_GCC=/usr/bin/gcc
         OFFLOAD_TARGET_NAMES=nvptx-none
@@ -63,8 +65,8 @@ events:
         Configured with: ../src/configure -v --with-pkgversion='Ubuntu 7.5.0-3ubuntu1~18.04' --with-bugurl=file:///usr/share/doc/gcc-7/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++ --prefix=/usr --with-gcc-major-version-only --program-suffix=-7 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-libmpx --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
         Thread model: posix
         gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04) 
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_0740b.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64'
-         /usr/lib/gcc/x86_64-linux-gnu/7/cc1 -quiet -v -imultiarch x86_64-linux-gnu /home/jackyk0708/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_0740b.dir/CMakeCCompilerABI.c.o -version -fstack-protector-strong -Wformat -Wformat-security -o /tmp/ccG7Hatn.s
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_4ddfc.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64'
+         /usr/lib/gcc/x86_64-linux-gnu/7/cc1 -quiet -v -imultiarch x86_64-linux-gnu /home/jackyk0708/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_4ddfc.dir/CMakeCCompilerABI.c.o -version -fstack-protector-strong -Wformat -Wformat-security -o /tmp/ccN3ggLO.s
         GNU C11 (Ubuntu 7.5.0-3ubuntu1~18.04) version 7.5.0 (x86_64-linux-gnu)
         	compiled by GNU C version 7.5.0, GMP version 6.1.2, MPFR version 4.0.1, MPC version 1.1.0, isl version isl-0.19-GMP
         
@@ -84,15 +86,15 @@ events:
         
         GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
         Compiler executable checksum: b62ed4a2880cd4159476ea8293b72fa8
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_0740b.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64'
-         as -v --64 -o CMakeFiles/cmTC_0740b.dir/CMakeCCompilerABI.c.o /tmp/ccG7Hatn.s
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_4ddfc.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64'
+         as -v --64 -o CMakeFiles/cmTC_4ddfc.dir/CMakeCCompilerABI.c.o /tmp/ccN3ggLO.s
         GNU assembler version 2.30 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.30
         COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/
         LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../:/lib/:/usr/lib/
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_0740b.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64'
-        Linking C executable cmTC_0740b
-        /home/jackyk0708/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0740b.dir/link.txt --verbose=1
-        /usr/bin/gcc  -v CMakeFiles/cmTC_0740b.dir/CMakeCCompilerABI.c.o -o cmTC_0740b 
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_4ddfc.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64'
+        Linking C executable cmTC_4ddfc
+        /home/jackyk0708/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4ddfc.dir/link.txt --verbose=1
+        /usr/bin/gcc  -v CMakeFiles/cmTC_4ddfc.dir/CMakeCCompilerABI.c.o -o cmTC_4ddfc 
         Using built-in specs.
         COLLECT_GCC=/usr/bin/gcc
         COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper
@@ -104,10 +106,12 @@ events:
         gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04) 
         COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/
         LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../:/lib/:/usr/lib/
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_0740b' '-mtune=generic' '-march=x86-64'
-         /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccTq3Spp.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_0740b /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_0740b.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_0740b' '-mtune=generic' '-march=x86-64'
-        make[1]: Leaving directory '/mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src-gen/server/build/CMakeFiles/CMakeScratch/TryCompile-Sg23KH'
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_4ddfc' '-mtune=generic' '-march=x86-64'
+         /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccF0gCcR.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_4ddfc /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_4ddfc.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_4ddfc' '-mtune=generic' '-march=x86-64'
+        make[1]: warning:  Clock skew detected.  Your build may be incomplete.
+        make[1]: Leaving directory '/mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src-gen/server/build/CMakeFiles/CMakeScratch/TryCompile-pOP6Pe'
+        make: warning:  Clock skew detected.  Your build may be incomplete.
         
       exitCode: 0
   -
@@ -143,12 +147,14 @@ events:
     message: |
       Parsed C implicit link information:
         link line regex: [^( *|.*[/\\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
-        ignore line: [Change Dir: /mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src-gen/server/build/CMakeFiles/CMakeScratch/TryCompile-Sg23KH]
+        ignore line: [Change Dir: /mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src-gen/server/build/CMakeFiles/CMakeScratch/TryCompile-pOP6Pe]
         ignore line: []
-        ignore line: [Run Build Command(s):/home/jackyk0708/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_0740b/fast && /usr/bin/make  -f CMakeFiles/cmTC_0740b.dir/build.make CMakeFiles/cmTC_0740b.dir/build]
-        ignore line: [make[1]: Entering directory '/mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src-gen/server/build/CMakeFiles/CMakeScratch/TryCompile-Sg23KH']
-        ignore line: [Building C object CMakeFiles/cmTC_0740b.dir/CMakeCCompilerABI.c.o]
-        ignore line: [/usr/bin/gcc   -v -o CMakeFiles/cmTC_0740b.dir/CMakeCCompilerABI.c.o -c /home/jackyk0708/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeCCompilerABI.c]
+        ignore line: [Run Build Command(s):/home/jackyk0708/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_4ddfc/fast && make: Warning: File 'Makefile' has modification time 1132 s in the future]
+        ignore line: [/usr/bin/make  -f CMakeFiles/cmTC_4ddfc.dir/build.make CMakeFiles/cmTC_4ddfc.dir/build]
+        ignore line: [make[1]: Entering directory '/mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src-gen/server/build/CMakeFiles/CMakeScratch/TryCompile-pOP6Pe']
+        ignore line: [make[1]: Warning: File 'CMakeFiles/cmTC_4ddfc.dir/flags.make' has modification time 1132 s in the future]
+        ignore line: [Building C object CMakeFiles/cmTC_4ddfc.dir/CMakeCCompilerABI.c.o]
+        ignore line: [/usr/bin/gcc   -v -o CMakeFiles/cmTC_4ddfc.dir/CMakeCCompilerABI.c.o -c /home/jackyk0708/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeCCompilerABI.c]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=/usr/bin/gcc]
         ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none]
@@ -157,8 +163,8 @@ events:
         ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 7.5.0-3ubuntu1~18.04' --with-bugurl=file:///usr/share/doc/gcc-7/README.Bugs --enable-languages=c ada c++ go brig d fortran objc obj-c++ --prefix=/usr --with-gcc-major-version-only --program-suffix=-7 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-libmpx --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32 m64 mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu]
         ignore line: [Thread model: posix]
         ignore line: [gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04) ]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_0740b.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64']
-        ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/7/cc1 -quiet -v -imultiarch x86_64-linux-gnu /home/jackyk0708/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_0740b.dir/CMakeCCompilerABI.c.o -version -fstack-protector-strong -Wformat -Wformat-security -o /tmp/ccG7Hatn.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_4ddfc.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64']
+        ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/7/cc1 -quiet -v -imultiarch x86_64-linux-gnu /home/jackyk0708/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_4ddfc.dir/CMakeCCompilerABI.c.o -version -fstack-protector-strong -Wformat -Wformat-security -o /tmp/ccN3ggLO.s]
         ignore line: [GNU C11 (Ubuntu 7.5.0-3ubuntu1~18.04) version 7.5.0 (x86_64-linux-gnu)]
         ignore line: [	compiled by GNU C version 7.5.0  GMP version 6.1.2  MPFR version 4.0.1  MPC version 1.1.0  isl version isl-0.19-GMP]
         ignore line: []
@@ -178,15 +184,15 @@ events:
         ignore line: []
         ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
         ignore line: [Compiler executable checksum: b62ed4a2880cd4159476ea8293b72fa8]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_0740b.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64']
-        ignore line: [ as -v --64 -o CMakeFiles/cmTC_0740b.dir/CMakeCCompilerABI.c.o /tmp/ccG7Hatn.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_4ddfc.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64']
+        ignore line: [ as -v --64 -o CMakeFiles/cmTC_4ddfc.dir/CMakeCCompilerABI.c.o /tmp/ccN3ggLO.s]
         ignore line: [GNU assembler version 2.30 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.30]
         ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/]
         ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../:/lib/:/usr/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_0740b.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64']
-        ignore line: [Linking C executable cmTC_0740b]
-        ignore line: [/home/jackyk0708/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0740b.dir/link.txt --verbose=1]
-        ignore line: [/usr/bin/gcc  -v CMakeFiles/cmTC_0740b.dir/CMakeCCompilerABI.c.o -o cmTC_0740b ]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_4ddfc.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64']
+        ignore line: [Linking C executable cmTC_4ddfc]
+        ignore line: [/home/jackyk0708/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4ddfc.dir/link.txt --verbose=1]
+        ignore line: [/usr/bin/gcc  -v CMakeFiles/cmTC_4ddfc.dir/CMakeCCompilerABI.c.o -o cmTC_4ddfc ]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=/usr/bin/gcc]
         ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper]
@@ -198,13 +204,13 @@ events:
         ignore line: [gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04) ]
         ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/]
         ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../:/lib/:/usr/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_0740b' '-mtune=generic' '-march=x86-64']
-        link line: [ /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccTq3Spp.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_0740b /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_0740b.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_4ddfc' '-mtune=generic' '-march=x86-64']
+        link line: [ /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccF0gCcR.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_4ddfc /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_4ddfc.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o]
           arg [/usr/lib/gcc/x86_64-linux-gnu/7/collect2] ==> ignore
           arg [-plugin] ==> ignore
           arg [/usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so] ==> ignore
           arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper] ==> ignore
-          arg [-plugin-opt=-fresolution=/tmp/ccTq3Spp.res] ==> ignore
+          arg [-plugin-opt=-fresolution=/tmp/ccF0gCcR.res] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
           arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -222,7 +228,7 @@ events:
           arg [-znow] ==> ignore
           arg [-zrelro] ==> ignore
           arg [-o] ==> ignore
-          arg [cmTC_0740b] ==> ignore
+          arg [cmTC_4ddfc] ==> ignore
           arg [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o]
           arg [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o]
           arg [/usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o]
@@ -234,7 +240,7 @@ events:
           arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
           arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
           arg [-L/usr/lib/gcc/x86_64-linux-gnu/7/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/7/../../..]
-          arg [CMakeFiles/cmTC_0740b.dir/CMakeCCompilerABI.c.o] ==> ignore
+          arg [CMakeFiles/cmTC_4ddfc.dir/CMakeCCompilerABI.c.o] ==> ignore
           arg [-lgcc] ==> lib [gcc]
           arg [--push-state] ==> ignore
           arg [--as-needed] ==> ignore
@@ -276,8 +282,8 @@ events:
     checks:
       - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
     directories:
-      source: "/mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src-gen/server/build/CMakeFiles/CMakeScratch/TryCompile-UepnJW"
-      binary: "/mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src-gen/server/build/CMakeFiles/CMakeScratch/TryCompile-UepnJW"
+      source: "/mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src-gen/server/build/CMakeFiles/CMakeScratch/TryCompile-TK3dD9"
+      binary: "/mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src-gen/server/build/CMakeFiles/CMakeScratch/TryCompile-TK3dD9"
     cmakeVariables:
       CMAKE_C_FLAGS: ""
       CMAKE_C_FLAGS_DEBUG: "-g"
@@ -287,27 +293,29 @@ events:
       variable: "CMAKE_HAVE_LIBC_PTHREAD"
       cached: true
       stdout: |
-        Change Dir: /mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src-gen/server/build/CMakeFiles/CMakeScratch/TryCompile-UepnJW
+        Change Dir: /mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src-gen/server/build/CMakeFiles/CMakeScratch/TryCompile-TK3dD9
         
-        Run Build Command(s):/home/jackyk0708/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_6da7b/fast && /usr/bin/make  -f CMakeFiles/cmTC_6da7b.dir/build.make CMakeFiles/cmTC_6da7b.dir/build
-        make[1]: Entering directory '/mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src-gen/server/build/CMakeFiles/CMakeScratch/TryCompile-UepnJW'
-        Building C object CMakeFiles/cmTC_6da7b.dir/src.c.o
-        /usr/bin/gcc -DCMAKE_HAVE_LIBC_PTHREAD  -std=gnu11 -fPIE -o CMakeFiles/cmTC_6da7b.dir/src.c.o -c /mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src-gen/server/build/CMakeFiles/CMakeScratch/TryCompile-UepnJW/src.c
-        Linking C executable cmTC_6da7b
-        /home/jackyk0708/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6da7b.dir/link.txt --verbose=1
-        /usr/bin/gcc CMakeFiles/cmTC_6da7b.dir/src.c.o -o cmTC_6da7b 
-        CMakeFiles/cmTC_6da7b.dir/src.c.o: In function `main':
+        Run Build Command(s):/home/jackyk0708/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_ee3c4/fast && make: Warning: File 'Makefile' has modification time 1132 s in the future
+        /usr/bin/make  -f CMakeFiles/cmTC_ee3c4.dir/build.make CMakeFiles/cmTC_ee3c4.dir/build
+        make[1]: Entering directory '/mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src-gen/server/build/CMakeFiles/CMakeScratch/TryCompile-TK3dD9'
+        make[1]: Warning: File 'CMakeFiles/cmTC_ee3c4.dir/flags.make' has modification time 1132 s in the future
+        Building C object CMakeFiles/cmTC_ee3c4.dir/src.c.o
+        /usr/bin/gcc -DCMAKE_HAVE_LIBC_PTHREAD  -std=gnu11 -fPIE -o CMakeFiles/cmTC_ee3c4.dir/src.c.o -c /mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src-gen/server/build/CMakeFiles/CMakeScratch/TryCompile-TK3dD9/src.c
+        Linking C executable cmTC_ee3c4
+        /home/jackyk0708/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ee3c4.dir/link.txt --verbose=1
+        /usr/bin/gcc CMakeFiles/cmTC_ee3c4.dir/src.c.o -o cmTC_ee3c4 
+        CMakeFiles/cmTC_ee3c4.dir/src.c.o: In function `main':
         src.c:(.text+0x3e): undefined reference to `pthread_create'
         src.c:(.text+0x4a): undefined reference to `pthread_detach'
         src.c:(.text+0x56): undefined reference to `pthread_cancel'
         src.c:(.text+0x67): undefined reference to `pthread_join'
         src.c:(.text+0x7b): undefined reference to `pthread_atfork'
         collect2: error: ld returned 1 exit status
-        CMakeFiles/cmTC_6da7b.dir/build.make:98: recipe for target 'cmTC_6da7b' failed
-        make[1]: *** [cmTC_6da7b] Error 1
-        make[1]: Leaving directory '/mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src-gen/server/build/CMakeFiles/CMakeScratch/TryCompile-UepnJW'
-        Makefile:127: recipe for target 'cmTC_6da7b/fast' failed
-        make: *** [cmTC_6da7b/fast] Error 2
+        CMakeFiles/cmTC_ee3c4.dir/build.make:98: recipe for target 'cmTC_ee3c4' failed
+        make[1]: *** [cmTC_ee3c4] Error 1
+        make[1]: Leaving directory '/mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src-gen/server/build/CMakeFiles/CMakeScratch/TryCompile-TK3dD9'
+        Makefile:127: recipe for target 'cmTC_ee3c4/fast' failed
+        make: *** [cmTC_ee3c4/fast] Error 2
         
       exitCode: 2
   -
@@ -320,8 +328,8 @@ events:
     checks:
       - "Looking for pthread_create in pthreads"
     directories:
-      source: "/mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src-gen/server/build/CMakeFiles/CMakeScratch/TryCompile-vCXJZe"
-      binary: "/mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src-gen/server/build/CMakeFiles/CMakeScratch/TryCompile-vCXJZe"
+      source: "/mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src-gen/server/build/CMakeFiles/CMakeScratch/TryCompile-0KnDE7"
+      binary: "/mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src-gen/server/build/CMakeFiles/CMakeScratch/TryCompile-0KnDE7"
     cmakeVariables:
       CMAKE_C_FLAGS: ""
       CMAKE_C_FLAGS_DEBUG: "-g"
@@ -331,22 +339,24 @@ events:
       variable: "CMAKE_HAVE_PTHREADS_CREATE"
       cached: true
       stdout: |
-        Change Dir: /mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src-gen/server/build/CMakeFiles/CMakeScratch/TryCompile-vCXJZe
+        Change Dir: /mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src-gen/server/build/CMakeFiles/CMakeScratch/TryCompile-0KnDE7
         
-        Run Build Command(s):/home/jackyk0708/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_42d71/fast && /usr/bin/make  -f CMakeFiles/cmTC_42d71.dir/build.make CMakeFiles/cmTC_42d71.dir/build
-        make[1]: Entering directory '/mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src-gen/server/build/CMakeFiles/CMakeScratch/TryCompile-vCXJZe'
-        Building C object CMakeFiles/cmTC_42d71.dir/CheckFunctionExists.c.o
-        /usr/bin/gcc   -DCHECK_FUNCTION_EXISTS=pthread_create -std=gnu11 -fPIE -o CMakeFiles/cmTC_42d71.dir/CheckFunctionExists.c.o -c /mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src-gen/server/build/CMakeFiles/CMakeScratch/TryCompile-vCXJZe/CheckFunctionExists.c
-        Linking C executable cmTC_42d71
-        /home/jackyk0708/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_42d71.dir/link.txt --verbose=1
-        /usr/bin/gcc  -DCHECK_FUNCTION_EXISTS=pthread_create CMakeFiles/cmTC_42d71.dir/CheckFunctionExists.c.o -o cmTC_42d71  -lpthreads 
+        Run Build Command(s):/home/jackyk0708/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_d0502/fast && make: Warning: File 'Makefile' has modification time 1132 s in the future
+        /usr/bin/make  -f CMakeFiles/cmTC_d0502.dir/build.make CMakeFiles/cmTC_d0502.dir/build
+        make[1]: Entering directory '/mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src-gen/server/build/CMakeFiles/CMakeScratch/TryCompile-0KnDE7'
+        make[1]: Warning: File 'CMakeFiles/cmTC_d0502.dir/flags.make' has modification time 1132 s in the future
+        Building C object CMakeFiles/cmTC_d0502.dir/CheckFunctionExists.c.o
+        /usr/bin/gcc   -DCHECK_FUNCTION_EXISTS=pthread_create -std=gnu11 -fPIE -o CMakeFiles/cmTC_d0502.dir/CheckFunctionExists.c.o -c /mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src-gen/server/build/CMakeFiles/CMakeScratch/TryCompile-0KnDE7/CheckFunctionExists.c
+        Linking C executable cmTC_d0502
+        /home/jackyk0708/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d0502.dir/link.txt --verbose=1
+        /usr/bin/gcc  -DCHECK_FUNCTION_EXISTS=pthread_create CMakeFiles/cmTC_d0502.dir/CheckFunctionExists.c.o -o cmTC_d0502  -lpthreads 
         /usr/bin/ld: cannot find -lpthreads
         collect2: error: ld returned 1 exit status
-        CMakeFiles/cmTC_42d71.dir/build.make:98: recipe for target 'cmTC_42d71' failed
-        make[1]: *** [cmTC_42d71] Error 1
-        make[1]: Leaving directory '/mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src-gen/server/build/CMakeFiles/CMakeScratch/TryCompile-vCXJZe'
-        Makefile:127: recipe for target 'cmTC_42d71/fast' failed
-        make: *** [cmTC_42d71/fast] Error 2
+        CMakeFiles/cmTC_d0502.dir/build.make:98: recipe for target 'cmTC_d0502' failed
+        make[1]: *** [cmTC_d0502] Error 1
+        make[1]: Leaving directory '/mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src-gen/server/build/CMakeFiles/CMakeScratch/TryCompile-0KnDE7'
+        Makefile:127: recipe for target 'cmTC_d0502/fast' failed
+        make: *** [cmTC_d0502/fast] Error 2
         
       exitCode: 2
   -
@@ -359,8 +369,8 @@ events:
     checks:
       - "Looking for pthread_create in pthread"
     directories:
-      source: "/mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src-gen/server/build/CMakeFiles/CMakeScratch/TryCompile-yfjXRA"
-      binary: "/mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src-gen/server/build/CMakeFiles/CMakeScratch/TryCompile-yfjXRA"
+      source: "/mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src-gen/server/build/CMakeFiles/CMakeScratch/TryCompile-sTPdx8"
+      binary: "/mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src-gen/server/build/CMakeFiles/CMakeScratch/TryCompile-sTPdx8"
     cmakeVariables:
       CMAKE_C_FLAGS: ""
       CMAKE_C_FLAGS_DEBUG: "-g"
@@ -370,16 +380,20 @@ events:
       variable: "CMAKE_HAVE_PTHREAD_CREATE"
       cached: true
       stdout: |
-        Change Dir: /mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src-gen/server/build/CMakeFiles/CMakeScratch/TryCompile-yfjXRA
+        Change Dir: /mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src-gen/server/build/CMakeFiles/CMakeScratch/TryCompile-sTPdx8
         
-        Run Build Command(s):/home/jackyk0708/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_30b9c/fast && /usr/bin/make  -f CMakeFiles/cmTC_30b9c.dir/build.make CMakeFiles/cmTC_30b9c.dir/build
-        make[1]: Entering directory '/mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src-gen/server/build/CMakeFiles/CMakeScratch/TryCompile-yfjXRA'
-        Building C object CMakeFiles/cmTC_30b9c.dir/CheckFunctionExists.c.o
-        /usr/bin/gcc   -DCHECK_FUNCTION_EXISTS=pthread_create -std=gnu11 -fPIE -o CMakeFiles/cmTC_30b9c.dir/CheckFunctionExists.c.o -c /mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src-gen/server/build/CMakeFiles/CMakeScratch/TryCompile-yfjXRA/CheckFunctionExists.c
-        Linking C executable cmTC_30b9c
-        /home/jackyk0708/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_30b9c.dir/link.txt --verbose=1
-        /usr/bin/gcc  -DCHECK_FUNCTION_EXISTS=pthread_create CMakeFiles/cmTC_30b9c.dir/CheckFunctionExists.c.o -o cmTC_30b9c  -lpthread 
-        make[1]: Leaving directory '/mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src-gen/server/build/CMakeFiles/CMakeScratch/TryCompile-yfjXRA'
+        Run Build Command(s):/home/jackyk0708/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_764e2/fast && make: Warning: File 'Makefile' has modification time 1132 s in the future
+        /usr/bin/make  -f CMakeFiles/cmTC_764e2.dir/build.make CMakeFiles/cmTC_764e2.dir/build
+        make[1]: Entering directory '/mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src-gen/server/build/CMakeFiles/CMakeScratch/TryCompile-sTPdx8'
+        make[1]: Warning: File 'CMakeFiles/cmTC_764e2.dir/flags.make' has modification time 1132 s in the future
+        Building C object CMakeFiles/cmTC_764e2.dir/CheckFunctionExists.c.o
+        /usr/bin/gcc   -DCHECK_FUNCTION_EXISTS=pthread_create -std=gnu11 -fPIE -o CMakeFiles/cmTC_764e2.dir/CheckFunctionExists.c.o -c /mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src-gen/server/build/CMakeFiles/CMakeScratch/TryCompile-sTPdx8/CheckFunctionExists.c
+        Linking C executable cmTC_764e2
+        /home/jackyk0708/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_764e2.dir/link.txt --verbose=1
+        /usr/bin/gcc  -DCHECK_FUNCTION_EXISTS=pthread_create CMakeFiles/cmTC_764e2.dir/CheckFunctionExists.c.o -o cmTC_764e2  -lpthread 
+        make[1]: warning:  Clock skew detected.  Your build may be incomplete.
+        make[1]: Leaving directory '/mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src-gen/server/build/CMakeFiles/CMakeScratch/TryCompile-sTPdx8'
+        make: warning:  Clock skew detected.  Your build may be incomplete.
         
       exitCode: 0
 ...

@@ -1,5 +1,5 @@
-#ifndef client56769829_main_H
-#define client56769829_main_H
+#ifndef client341582687_main_H
+#define client341582687_main_H
 #include <limits.h>
 #include "include/core/platform.h"
 #include "include/api/api.h"
@@ -25,9 +25,9 @@ typedef struct client_self_t{
 int end[0]; // placeholder; MSVC does not compile empty structs
 } client_self_t;
 #line 46 "/mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src/client.lf"
-typedef generic_action_instance_struct client56769829_main_outputControlReactionTrigger_t;
+typedef generic_action_instance_struct client341582687_main_outputControlReactionTrigger_t;
 #line 47 "/mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src/client.lf"
-typedef generic_action_instance_struct client56769829_main_networkMessage_0_t;
+typedef generic_action_instance_struct client341582687_main_networkMessage_0_t;
 typedef struct {
     token_type_t type;
     lf_token_t* token;

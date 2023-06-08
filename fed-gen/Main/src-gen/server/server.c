@@ -22,8 +22,8 @@ void _lf_set_default_command_line_options() {
         default_argc = 6;
         default_argv = _lf_default_argv;
 }
-#include "serverreactor1334303919.h"
-#include "server1542347293_main.h"
+#include "serverreactor1387187301.h"
+#include "server2107671597_main.h"
 #include "include/_server_preamble.h"
 // Array of pointers to timer triggers to be scheduled in _lf_initialize_timers().
 trigger_t** _lf_timer_triggers = NULL;
@@ -63,12 +63,12 @@ void _lf_initialize_trigger_objects() {
     SUPPRESS_UNUSED_WARNING(_lf_timer_triggers_count);
     int bank_index;
     SUPPRESS_UNUSED_WARNING(bank_index);
-    _server1542347293_main_main_self_t* server_main_self[1];
+    _server2107671597_main_main_self_t* server_main_self[1];
     SUPPRESS_UNUSED_WARNING(server_main_self);
-    _serverreactor1334303919_self_t* server_server_self[1];
+    _serverreactor1387187301_self_t* server_server_self[1];
     SUPPRESS_UNUSED_WARNING(server_server_self);
     // ***** Start initializing server of class server
-    server_main_self[0] = new_server1542347293_main();
+    server_main_self[0] = new_server2107671597_main();
     server_main_self[0]->_lf_name = "server_main_lf";
     // Initializing action server.inputControlReactionTrigger
     server_main_self[0]->_lf__inputControlReactionTrigger.offset = 0;
@@ -91,7 +91,7 @@ void _lf_initialize_trigger_objects() {
     server_main_self[0]->_lf__reaction_2.deadline = NEVER;
     {
         // ***** Start initializing server.server of class ServerReactor
-        server_server_self[0] = new_serverreactor1334303919();
+        server_server_self[0] = new_serverreactor1387187301();
         server_server_self[0]->_lf_name = "server_server_lf";
         server_server_self[0]->_lf_py_reaction_function_0 = 
         get_python_function("__main__", 
@@ -239,7 +239,6 @@ void _lf_initialize_trigger_objects() {
         int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
         int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
         server_main_self[src_runtime]->_lf_server.in_parameter.num_destinations = 1;
-        _lf_initialize_template((token_template_t*)(&server_main_self[src_runtime]->_lf_server.in_parameter), sizeof(PyObject*));  //added
     }
     {
         int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
@@ -424,7 +423,7 @@ void _lf_initialize_trigger_objects() {
             int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
             int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
             int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            server_server_self[dst_runtime]->_lf_in_parameter = (serverreactor1334303919_in_parameter_t*)&server_main_self[src_runtime]->_lf_server.in_parameter;
+            server_server_self[dst_runtime]->_lf_in_parameter = (serverreactor1387187301_in_parameter_t*)&server_main_self[src_runtime]->_lf_server.in_parameter;
         }
     }
     // Connect server.server.out_parameter(0,1)->[server.server.out_parameter(0,1)] to port server.server.out_parameter(0,1)
@@ -442,7 +441,7 @@ void _lf_initialize_trigger_objects() {
             int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
             int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
             int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            server_main_self[dst_runtime]->_lf_server.out_parameter = (serverreactor1334303919_out_parameter_t*)&server_server_self[src_runtime]->_lf_out_parameter;
+            server_main_self[dst_runtime]->_lf_server.out_parameter = (serverreactor1387187301_out_parameter_t*)&server_server_self[src_runtime]->_lf_out_parameter;
         }
     }
     {

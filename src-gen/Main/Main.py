@@ -24,27 +24,43 @@ import copy
 
 # From the preamble, verbatim:
 import time
+import tracemalloc
+tracemalloc.start()
 # End of preamble.
 # From the preamble, verbatim:
 import time
+import tracemalloc
+tracemalloc.start()
 # End of preamble.
 # From the preamble, verbatim:
 import time
+import tracemalloc
+tracemalloc.start()
 # End of preamble.
 # From the preamble, verbatim:
 import time
+import tracemalloc
+tracemalloc.start()
 # End of preamble.
 # From the preamble, verbatim:
 import time
+import tracemalloc
+tracemalloc.start()
 # End of preamble.
 # From the preamble, verbatim:
 import time
+import tracemalloc
+tracemalloc.start()
 # End of preamble.
 # From the preamble, verbatim:
 import time
+import tracemalloc
+tracemalloc.start()
 # End of preamble.
 # From the preamble, verbatim:
 import time
+import tracemalloc
+tracemalloc.start()
 # End of preamble.
 
 
@@ -108,13 +124,20 @@ class _serverreactor1329897103:
         out_parameter.set(self.large_param)
         return 0
     def reaction_function_1(self, in_parameter, out_parameter):
+        snapshot = tracemalloc.take_snapshot()
+        top_stats = snapshot.statistics("lineno")
+        
+        print("[ Top 10 ]")
+        for stat in top_stats[:10]:
+            print(stat)
+        
         time.sleep(2)
         param_temp = in_parameter.value
         out_parameter.set(param_temp)
         return 0
 
-# Python class for reactor _lf_gendelay_0851033362
-class __lf_gendelay_0851033362:
+# Python class for reactor _lf_gendelay_0542839598
+class __lf_gendelay_0542839598:
     # Constructor
     def __init__(self, **kwargs):
         # Define parameters and their default values
@@ -159,10 +182,10 @@ for main_main_i in range(1):
         main_server_lf[0] = _serverreactor1329897103(
             _bank_index = 0,
         )
-    # Start initializing Main.delay of class _lf_gendelay_0851033362
+    # Start initializing Main.delay of class _lf_gendelay_0542839598
     for main_delay_i in range(1):
         bank_index = main_delay_i
-        main_delay_lf[0] = __lf_gendelay_0851033362(
+        main_delay_lf[0] = __lf_gendelay_0542839598(
             _bank_index = 0,
             _delay=0,
         )

@@ -56,8 +56,6 @@ PyObject* globalPythonModuleDict = NULL;
 // Import pickle to enable native serialization
 PyObject* global_pickler = NULL;
 
-PyObject* output_capsule = NULL;
-
 
 //////////// schedule Function(s) /////////////
 
@@ -417,8 +415,6 @@ PyObject* convert_C_port_to_py(void* port, int width) {
     // Create the port struct in Python
     PyObject* cap =
         (PyObject*)PyObject_GC_New(generic_port_capsule_struct, &py_port_capsule_t);
-
-    output_capsule = cap;
     if (cap == NULL) {
         lf_print_error_and_exit("Failed to convert port.");
     }

@@ -50,7 +50,7 @@ reactor ServerReactor {
     =}
 }
 
-main reactor{
+federated reactor{
     client = new ClientReactor()
     server = new ServerReactor()
     server.out_parameter -> client.in_parameter after 0

@@ -21,7 +21,7 @@ void _lf_set_default_command_line_options() {
 }
 #include "clientreactor1101451553.h"
 #include "serverreactor1329897103.h"
-#include "_lf_gendelay_0851033362.h"
+#include "_lf_gendelay_0542839598.h"
 #include "main1472012329_main.h"
 // Array of pointers to timer triggers to be scheduled in _lf_initialize_timers().
 trigger_t** _lf_timer_triggers = NULL;
@@ -67,7 +67,7 @@ void _lf_initialize_trigger_objects() {
     SUPPRESS_UNUSED_WARNING(main_client_self);
     _serverreactor1329897103_self_t* main_server_self[1];
     SUPPRESS_UNUSED_WARNING(main_server_self);
-    __lf_gendelay_0851033362_self_t* main_delay_self[1];
+    __lf_gendelay_0542839598_self_t* main_delay_self[1];
     SUPPRESS_UNUSED_WARNING(main_delay_self);
     // ***** Start initializing Main of class Main
     main_main_self[0] = new_main1472012329_main();
@@ -132,7 +132,7 @@ void _lf_initialize_trigger_objects() {
     }
     {
         // ***** Start initializing Main.delay of class _lf_GenDelay_0
-        main_delay_self[0] = new__lf_gendelay_0851033362();
+        main_delay_self[0] = new__lf_gendelay_0542839598();
         main_delay_self[0]->_lf_name = "main_delay_lf";
         // width of -2 indicates that it is not a multiport.
         main_delay_self[0]->_lf_out_width = -2;
@@ -500,7 +500,7 @@ void _lf_initialize_trigger_objects() {
             int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
             int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
             int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            main_delay_self[dst_runtime]->_lf_inp = (_lf_gendelay_0851033362_inp_t*)&main_server_self[src_runtime]->_lf_out_parameter;
+            main_delay_self[dst_runtime]->_lf_inp = (_lf_gendelay_0542839598_inp_t*)&main_server_self[src_runtime]->_lf_out_parameter;
         }
     }
     // Connect inputs and outputs for reactor Main.delay.

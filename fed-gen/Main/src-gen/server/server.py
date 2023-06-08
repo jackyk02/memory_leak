@@ -48,8 +48,8 @@ tracemalloc.start()
 # End of preamble.
 
 
-# Python class for reactor server1542347293_main
-class _server1542347293_main:
+# Python class for reactor server2107671597_main
+class _server2107671597_main:
     # Constructor
     def __init__(self, **kwargs):
         # Define parameters and their default values
@@ -63,8 +63,8 @@ class _server1542347293_main:
     
     
 
-# Python class for reactor serverreactor1334303919
-class _serverreactor1334303919:
+# Python class for reactor serverreactor1387187301
+class _serverreactor1387187301:
     # Constructor
     def __init__(self, **kwargs):
         # Define parameters and their default values
@@ -93,7 +93,6 @@ class _serverreactor1334303919:
         
         time.sleep(2)
         param_temp = in_parameter.value
-        print(len(param_temp))
         out_parameter.set(param_temp)
         return 0
 
@@ -102,16 +101,16 @@ class _serverreactor1334303919:
 # Instantiate classes
 server_main_lf = [None] * 1
 server_server_lf = [None] * 1
-# Start initializing server of class server1542347293_main
+# Start initializing server of class server2107671597_main
 for server_main_i in range(1):
     bank_index = server_main_i
-    server_main_lf[0] = _server1542347293_main(
+    server_main_lf[0] = _server2107671597_main(
         _bank_index = 0,
     )
-    # Start initializing server.server of class serverreactor1334303919
+    # Start initializing server.server of class serverreactor1387187301
     for server_server_i in range(1):
         bank_index = server_server_i
-        server_server_lf[0] = _serverreactor1334303919(
+        server_server_lf[0] = _serverreactor1387187301(
             _bank_index = 0,
         )
 

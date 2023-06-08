@@ -129,8 +129,6 @@ lf_token_t* lf_writable_copy(lf_port_base_t* port) {
 //// Internal functions.
 
 void _lf_free_token_value(lf_token_t* token) {
-    LF_PRINT_DEBUG("1......................................................................................................................");
-    LF_PRINT_DEBUG("%p\n", token->value);
     if (token->value != NULL) {
         // Count frees to issue a warning if this is never freed.
         _lf_count_payload_allocations--;
@@ -141,11 +139,9 @@ void _lf_free_token_value(lf_token_t* token) {
         LF_PRINT_DEBUG("_lf_free_token_value: Freeing allocated memory for payload (token value): %p",
                 token->value);
         if (token->type->destructor == NULL) {
-            LF_PRINT_DEBUG("2......................................................................................................................");
             free(token->value);
         } else {
             token->type->destructor(token->value);
-            LF_PRINT_DEBUG("3......................................................................................................................");
         }
 #endif
         token->value = NULL;
@@ -157,6 +153,7 @@ token_freed _lf_free_token(lf_token_t* token) {
     if (token == NULL) return result;
     if (token->ref_count > 0) return result;
     _lf_free_token_value(token);
+
     // Tokens that are created at the start of execution and associated with
     // output ports or actions persist until they are overwritten.
     // Need to acquire a mutex to access the recycle bin.

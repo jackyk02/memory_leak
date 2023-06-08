@@ -41,9 +41,9 @@ Python_add_library(
     lib/python_time.c
     lib/pythontarget.c
     main1472012329_main.c
+    _lf_gendelay_0542839598.c
     clientreactor1101451553.c
     serverreactor1329897103.c
-    _lf_gendelay_0851033362.c
     Main.c
 )
 if (MSVC)

@@ -1,5 +1,5 @@
-#ifndef clientreactor1769219705_H
-#define clientreactor1769219705_H
+#ifndef clientreactor393266340_H
+#define clientreactor393266340_H
 #include <limits.h>
 #include "include/core/platform.h"
 #include "include/api/api.h"
@@ -25,7 +25,7 @@ typedef struct clientreactor_self_t{
 int end[0]; // placeholder; MSVC does not compile empty structs
 } clientreactor_self_t;
 #line 26 "/mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src/client.lf"
-typedef generic_port_instance_struct clientreactor1769219705_in_parameter_t;
+typedef generic_port_instance_struct clientreactor393266340_in_parameter_t;
 #line 27 "/mnt/c/Users/jacky/Desktop/Memory_Leak/fed-gen/Main/src/client.lf"
-typedef generic_port_instance_struct clientreactor1769219705_out_parameter_t;
+typedef generic_port_instance_struct clientreactor393266340_out_parameter_t;
 #endif

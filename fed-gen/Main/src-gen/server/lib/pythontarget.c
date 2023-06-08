@@ -56,10 +56,6 @@ PyObject* globalPythonModuleDict = NULL;
 // Import pickle to enable native serialization
 PyObject* global_pickler = NULL;
 
-// added
-PyObject* input_capsule = NULL;
-PyObject* output_capsule = NULL;
-
 
 //////////// schedule Function(s) /////////////
 
@@ -422,102 +418,6 @@ PyObject* convert_C_port_to_py(void* port, int width) {
     if (cap == NULL) {
         lf_print_error_and_exit("Failed to convert port.");
     }
-    output_capsule = cap;
-
-    // Create the capsule to hold the void* port
-    PyObject* capsule = PyCapsule_New(port, "port", NULL);
-    if (capsule == NULL) {
-        lf_print_error_and_exit("Failed to convert port.");
-    }
-
-    // Fill in the Python port struct
-    ((generic_port_capsule_struct*)cap)->port = capsule;
-    ((generic_port_capsule_struct*)cap)->width = width;
-
-    if (width == -2) {
-        generic_port_instance_struct* cport = (generic_port_instance_struct*)port;
-        FEDERATED_ASSIGN_FIELDS(((generic_port_capsule_struct*)cap), cport);
-
-        ((generic_port_capsule_struct*)cap)->is_present =
-            cport->is_present;
-
-        if (cport->value == NULL) {
-            // Value is absent
-            Py_INCREF(Py_None);
-            ((generic_port_capsule_struct*)cap)->value = Py_None;
-            return cap;
-        }
-
-        //Py_INCREF(cport->value);
-        ((generic_port_capsule_struct*)cap)->value = cport->value;
-    }
-    else {
-        // Multiport. Value of the multiport itself cannot be accessed, so we set it to
-        // None.
-        Py_INCREF(Py_None);
-        ((generic_port_capsule_struct*)cap)->value = Py_None;
-        ((generic_port_capsule_struct*)cap)->is_present = false;
-    }
-
-    return cap;
-}
-
-PyObject* in_convert_C_port_to_py(void* port, int width) {
-    // Create the port struct in Python
-    PyObject* cap =
-        (PyObject*)PyObject_GC_New(generic_port_capsule_struct, &py_port_capsule_t);
-    
-    input_capsule = cap;
-    if (cap == NULL) {
-        lf_print_error_and_exit("Failed to convert port.");
-    }
-
-    // Create the capsule to hold the void* port
-    PyObject* capsule = PyCapsule_New(port, "port", NULL);
-    if (capsule == NULL) {
-        lf_print_error_and_exit("Failed to convert port.");
-    }
-
-    // Fill in the Python port struct
-    ((generic_port_capsule_struct*)cap)->port = capsule;
-    ((generic_port_capsule_struct*)cap)->width = width;
-
-    if (width == -2) {
-        generic_port_instance_struct* cport = (generic_port_instance_struct*)port;
-        FEDERATED_ASSIGN_FIELDS(((generic_port_capsule_struct*)cap), cport);
-
-        ((generic_port_capsule_struct*)cap)->is_present =
-            cport->is_present;
-
-        if (cport->value == NULL) {
-            // Value is absent
-            Py_INCREF(Py_None);
-            ((generic_port_capsule_struct*)cap)->value = Py_None;
-            return cap;
-        }
-
-        //Py_INCREF(cport->value);
-        ((generic_port_capsule_struct*)cap)->value = cport->value;
-    }
-    else {
-        // Multiport. Value of the multiport itself cannot be accessed, so we set it to
-        // None.
-        Py_INCREF(Py_None);
-        ((generic_port_capsule_struct*)cap)->value = Py_None;
-        ((generic_port_capsule_struct*)cap)->is_present = false;
-    }
-
-    return cap;
-}
-
-PyObject* out_convert_C_port_to_py(void* port, int width) {
-    // Create the port struct in Python
-    PyObject* cap =
-        (PyObject*)PyObject_GC_New(generic_port_capsule_struct, &py_port_capsule_t);
-    output_capsule = cap;
-    if (cap == NULL) {
-        lf_print_error_and_exit("Failed to convert port.");
-    }
 
     // Create the capsule to hold the void* port
     PyObject* capsule = PyCapsule_New(port, "port", NULL);
@@ -756,8 +656,6 @@ get_python_function(string module, string class, int instance_id, string func) {
             }
             lf_print_error("Function %s was not found or is not callable.", func);
         }
-        LF_PRINT_DEBUG("pFunc Reference count: %ld\n", Py_REFCNT(pFunc));
-        LF_PRINT_DEBUG("pFunc Reference count: %ld\n", Py_REFCNT(globalPythonModule));
         Py_XDECREF(pFunc);
         Py_DECREF(globalPythonModule);
     }

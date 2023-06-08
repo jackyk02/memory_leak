@@ -40,8 +40,8 @@ Python_add_library(
     lib/python_tag.c
     lib/python_time.c
     lib/pythontarget.c
-    client56769829_main.c
-    clientreactor1769219705.c
+    client341582687_main.c
+    clientreactor393266340.c
     client.c
 )
 if (MSVC)
