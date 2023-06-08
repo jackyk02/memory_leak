@@ -4,18 +4,48 @@
 #include "client341582687_main.h"
 #include "include/api/set.h"
 
-PyObject* out_param_val = NULL;
-PyObject* serialized_obj = NULL;
+//LinkedList
+struct node {
+    PyObject* data;
+    struct node* next;
+};
+struct node* out_param_head = NULL;
+struct node* out_param_current = NULL;
+
+struct node* serialized_obj_head = NULL;
+struct node* serialized_obj_current = NULL;
+
+void iter_decrease_count(struct node* p) {
+    while (p != NULL) {
+        if (p->data) {
+            PyObject* serialized_obj = p->data;
+            int serialized_obj_count = Py_REFCNT(serialized_obj);
+            LF_PRINT_DEBUG("%d", serialized_obj_count);
+            for (int i = 0; i < 1; i++) {
+                Py_XDECREF(serialized_obj);
+            }
+        }
+        struct node* tmp = p;
+        p = p->next;
+        free(tmp);
+    }
+}
 
 void python_count_decrement(void* py_object) {
-    LF_PRINT_DEBUG("PYTHON DECREMENT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-    Py_XDECREF((PyObject*)py_object);
-    LF_PRINT_DEBUG("!!!!!!!!!!!!!!!!!!!!!Reference COUNT: %d", Py_REFCNT(out_param_val));
-    Py_XDECREF(out_param_val);
-    Py_XDECREF(out_param_val);
-    Py_XDECREF(out_param_val);
-    LF_PRINT_DEBUG("!!!!!!!!!!!!!!!!!!!!!Reference COUNT: %d", Py_REFCNT(serialized_obj));
-    Py_XDECREF(serialized_obj);
+    //Decrease Deserialized PyObject
+    if (py_object){
+        Py_XDECREF((PyObject*)py_object);
+    }
+    
+    //Decrease Serialized PyObject
+    struct node* p = serialized_obj_head;
+    iter_decrease_count(p);
+    serialized_obj_head = NULL;
+
+    //Decrease Out Param PyObject
+    struct node* q = out_param_head;
+    iter_decrease_count(q);
+    out_param_head = NULL;
 }
 
 void client341582687_mainreaction_function_0(void* instance_args) {
@@ -47,13 +77,41 @@ void client341582687_mainreaction_function_0(void* instance_args) {
     }
     size_t message_length = serialized_message.len;
     int send = send_timed_message(NEVER, MSG_TYPE_TAGGED_MESSAGE, 0, 1, "federate 1 via the RTI", message_length, serialized_message.buf);
-    //added
-    out_param_val = client.out_parameter->value;
-    serialized_obj = serialized_pyobject;
     
+    // changed
+    // out param linkedlist
+    if (out_param_head == NULL) {
+        out_param_head = (struct node*)malloc(sizeof(struct node));
+        out_param_head->data = (PyObject*)client.out_parameter->value;
+        out_param_head->next = NULL;
+        out_param_current = out_param_head;
+    }
+    else {
+        struct node* tmp = (struct node*)malloc(sizeof(struct node));
+        tmp->data = client.out_parameter->value;
+        tmp->next = NULL;
+        out_param_current->next = tmp;
+        out_param_current = out_param_current->next;    }
+
+    // serialized object linkedlist
+    if (serialized_obj_head == NULL) {
+        serialized_obj_head = (struct node*)malloc(sizeof(struct node));
+        serialized_obj_head->data = (PyObject*)serialized_pyobject;
+        serialized_obj_head->next = NULL;
+        serialized_obj_current = serialized_obj_head;
+    }
+    else {
+        struct node* tmp = (struct node*)malloc(sizeof(struct node));
+        tmp->data = serialized_pyobject;
+        tmp->next = NULL;
+        serialized_obj_current->next = tmp;
+        serialized_obj_current = serialized_obj_current->next;
+    }
+
     /* Release the thread. No Python API allowed beyond this point. */
     PyGILState_Release(gstate);
 }
+
 #include "include/api/set_undef.h"
 #include "include/api/set.h"
 void client341582687_mainreaction_function_1(void* instance_args) {
