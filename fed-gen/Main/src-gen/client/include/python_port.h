@@ -100,4 +100,6 @@ typedef struct {
     FEDERATED_CAPSULE_EXTENSION
 } generic_port_capsule_struct;
 
+//decrement function
+void python_count_decrement(void* py_object);
 #endif

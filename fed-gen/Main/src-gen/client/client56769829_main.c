@@ -3,6 +3,7 @@
 #include "include/client/client.h"
 #include "client56769829_main.h"
 #include "include/api/set.h"
+#include "include/python_port.h"
 void client56769829_mainreaction_function_0(void* instance_args) {
     _client56769829_main_main_self_t* self = (_client56769829_main_main_self_t*)instance_args; SUPPRESS_UNUSED_WARNING(self);
     struct client {
@@ -32,6 +33,8 @@ void client56769829_mainreaction_function_0(void* instance_args) {
     }
     size_t message_length = serialized_message.len;
     send_timed_message(NEVER, MSG_TYPE_TAGGED_MESSAGE, 0, 1, "federate 1 via the RTI", message_length, serialized_message.buf);
+    //decrease reference count for serialized_pyobj
+    Py_XDECREF(serialized_pyobject);
     /* Release the thread. No Python API allowed beyond this point. */
     PyGILState_Release(gstate);
 }
@@ -85,14 +88,17 @@ void client56769829_mainreaction_function_2(void* instance_args) {
     // **** This reaction is unordered.
     client.in_parameter->physical_time_of_arrival = self->_lf__networkMessage_0.physical_time_of_arrival;
     PyObject* message_byte_array = PyBytes_FromStringAndSize((char*)networkMessage_0->token->value, networkMessage_0->token->length);
-    Py_XINCREF(message_byte_array);
+    //removed Py_XINCREF(message_byte_array);
     PyObject* deserialized_message = PyObject_CallMethod(global_pickler, "loads", "O", message_byte_array);
     if (deserialized_message == NULL) {
         if (PyErr_Occurred()) PyErr_Print();
         lf_print_error_and_exit("Could not deserialize deserialized_message.");
     }
     Py_XDECREF(message_byte_array);
-    lf_set(client.in_parameter, deserialized_message);
+    lf_token_t* token = lf_new_token((void*)client.in_parameter, deserialized_message, 1);
+    // use _lf_initialize_token_with_value() instead
+    lf_set_destructor(client.in_parameter, python_count_decrement);
+    lf_set_token(client.in_parameter, token);
     /* Release the thread. No Python API allowed beyond this point. */
     PyGILState_Release(gstate);
 }

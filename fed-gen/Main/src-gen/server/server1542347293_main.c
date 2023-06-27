@@ -93,6 +93,8 @@ void server1542347293_mainreaction_function_2(void* instance_args) {
     }
     size_t message_length = serialized_message.len;
     send_timed_message(0, MSG_TYPE_TAGGED_MESSAGE, 0, 0, "federate 0 via the RTI", message_length, serialized_message.buf);
+    //decrease reference count for serialized_pyobj
+    Py_XDECREF(serialized_pyobject);
     /* Release the thread. No Python API allowed beyond this point. */
     PyGILState_Release(gstate);
 }
