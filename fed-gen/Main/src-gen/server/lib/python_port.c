@@ -36,6 +36,8 @@ THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "python_port.h"
 #include "reactor.h"
+#include "api/api.h"
+#include "api/set.h"
 
 PyTypeObject py_port_capsule_t;
 
@@ -68,6 +70,13 @@ PyTypeObject py_port_capsule_t;
  * @param args contains:
  *      - val: The value to insert into the port struct.
  */
+
+void python_count_decrement(void* py_object) {
+    LF_PRINT_DEBUG("PYTHON DECREMENT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+    Py_XDECREF((PyObject*)py_object);
+    LF_PRINT_DEBUG("!!!!!!!!!!!!!!!!!!!!!Reference COUNT: %d", Py_REFCNT(py_object));
+}
+
 PyObject* py_port_set(PyObject* self, PyObject* args) {
     generic_port_capsule_struct* p = (generic_port_capsule_struct*)self;
     PyObject* val = NULL;
@@ -89,7 +98,13 @@ PyObject* py_port_set(PyObject* self, PyObject* args) {
         Py_XDECREF(port->value);
         Py_INCREF(val);
         // Call the core lib API to set the port
-        _LF_SET(port, val);
+        // Use token to set the port
+        // _LF_SET(port, val);
+        lf_token_t* token = lf_new_token((void*)port, val, 1);
+        lf_set_destructor(port, python_count_decrement);
+        lf_set_token(port, token);
+
+        LF_PRINT_DEBUG("TOKEN SET!!!------------------------------------------------------------------------------------------------------------");
 
         Py_INCREF(val);
         // Also set the values for the port capsule.
