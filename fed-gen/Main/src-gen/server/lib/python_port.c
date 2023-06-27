@@ -106,7 +106,7 @@ PyObject* py_port_set(PyObject* self, PyObject* args) {
 
         LF_PRINT_DEBUG("TOKEN SET!!!------------------------------------------------------------------------------------------------------------");
 
-        Py_INCREF(val);
+        // Py_INCREF(val);
         // Also set the values for the port capsule.
         p->value = val;
         p->is_present = true;

@@ -3,6 +3,7 @@
 #include "include/server/server.h"
 #include "server1542347293_main.h"
 #include "include/api/set.h"
+#include "include/python_port.h"
 void server1542347293_mainreaction_function_0(void* instance_args) {
     _server1542347293_main_main_self_t* self = (_server1542347293_main_main_self_t*)instance_args; SUPPRESS_UNUSED_WARNING(self);
     struct server {
@@ -45,14 +46,19 @@ void server1542347293_mainreaction_function_1(void* instance_args) {
     // **** This reaction is unordered.
     server.in_parameter->physical_time_of_arrival = self->_lf__networkMessage.physical_time_of_arrival;
     PyObject* message_byte_array = PyBytes_FromStringAndSize((char*)networkMessage->token->value, networkMessage->token->length);
-    Py_XINCREF(message_byte_array);
+    //removed Py_XINCREF(message_byte_array);
     PyObject* deserialized_message = PyObject_CallMethod(global_pickler, "loads", "O", message_byte_array);
     if (deserialized_message == NULL) {
         if (PyErr_Occurred()) PyErr_Print();
         lf_print_error_and_exit("Could not deserialize deserialized_message.");
     }
     Py_XDECREF(message_byte_array);
-    lf_set(server.in_parameter, deserialized_message);
+    //changed
+    //lf_set(server.in_parameter, deserialized_message);
+    lf_token_t* token = lf_new_token((void*)server.in_parameter, deserialized_message, 1);
+    // use _lf_initialize_token_with_value() instead
+    lf_set_destructor(server.in_parameter, python_count_decrement);
+    lf_set_token(server.in_parameter, token);
     /* Release the thread. No Python API allowed beyond this point. */
     PyGILState_Release(gstate);
 }
