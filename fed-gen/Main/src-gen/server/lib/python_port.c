@@ -85,7 +85,7 @@ PyObject* py_port_set(PyObject* self, PyObject* args) {
     }
 
     if (val) {
-        LF_PRINT_DEBUG("Setting value lol %p.", val);
+        LF_PRINT_DEBUG("Setting value %p.", val);
         Py_XDECREF(port->value);
         Py_INCREF(val);
         // Call the core lib API to set the port

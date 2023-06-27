@@ -34,8 +34,8 @@ void python_count_decrement(void* py_object) {
     Py_XDECREF(out_param_val);
     Py_XDECREF(out_param_val);
     Py_XDECREF(out_param_val);
-    LF_PRINT_DEBUG("!!!!!!!!!!!!!!!!!!!!!Reference COUNT: %d", Py_REFCNT(serialized_obj));
-    Py_XDECREF(serialized_obj);
+    //LF_PRINT_DEBUG("!!!!!!!!!!!!!!!!!!!!!Reference COUNT: %d", Py_REFCNT(serialized_obj));
+    //Py_XDECREF(serialized_obj);
 }
 
 
@@ -72,6 +72,7 @@ void server2107671597_mainreaction_function_1(void* instance_args) {
     //changed
     //lf_set(server.in_parameter, deserialized_message);
     lf_token_t* token = lf_new_token((void*)server.in_parameter, deserialized_message, 1);
+    // use _lf_initialize_token_with_value() instead
     lf_set_destructor(server.in_parameter, python_count_decrement);
     lf_set_token(server.in_parameter, token);
     /* Release the thread. No Python API allowed beyond this point. */
@@ -111,7 +112,8 @@ void server2107671597_mainreaction_function_2(void* instance_args) {
     int send = send_timed_message(0, MSG_TYPE_TAGGED_MESSAGE, 0, 0, "federate 0 via the RTI", message_length, serialized_message.buf);
     //added
     out_param_val = server.out_parameter->value;
-    serialized_obj = serialized_pyobject;
+    //serialized_obj = serialized_pyobject;
+    Py_XDECREF(serialized_pyobject);
     
     /* Release the thread. No Python API allowed beyond this point. */
     PyGILState_Release(gstate);
